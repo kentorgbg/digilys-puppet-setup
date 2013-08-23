@@ -1,0 +1,6 @@
+
+rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i386.rpm
+rpm -i rpmforge-release-0.5.3-1.el5.rf.i386.rpm
+yum install git
+
