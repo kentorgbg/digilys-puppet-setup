@@ -1,3 +1,4 @@
+* CentOS 5:
 
 Install GIT:
 rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
@@ -12,3 +13,15 @@ yum install puppet
 Install PostgreSQL repository
 wget http://yum.postgresql.org/9.2/redhat/rhel-5-i386/pgdg-centos92-9.2-6.noarch.rpm
 rpm -i pgdg-centos92-9.2-6.noarch.rpm
+
+
+* CentOS 6:
+Install GIT:
+yum install git
+
+Install Puppet:
+rpm -ivh http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-7.noarch.rpm
+yum install puppet
+
+Install PostgreSQL repository
+rpm -ivh http://yum.postgresql.org/9.2/redhat/rhel-6-i386/pgdg-centos92-9.2-6.noarch.rpm
