@@ -14,8 +14,13 @@ Install PostgreSQL repository
 wget http://yum.postgresql.org/9.2/redhat/rhel-5-i386/pgdg-centos92-9.2-6.noarch.rpm
 rpm -i pgdg-centos92-9.2-6.noarch.rpm
 
+Install nginx repository:
+wget http://nginx.org/packages/centos/5/noarch/RPMS/nginx-release-centos-5-0.el5.ngx.noarch.rpm
+rpm -ivh nginx-release-centos-5-0.el5.ngx.noarch.rpm
+
 Install required Puppet modules:
 puppet module install alup/rbenv
+puppet module install thias/nginx
 
 
 * CentOS 6:
@@ -29,6 +34,10 @@ yum install puppet
 Install PostgreSQL repository
 rpm -ivh http://yum.postgresql.org/9.2/redhat/rhel-6-i386/pgdg-centos92-9.2-6.noarch.rpm
 
+Install nginx repository:
+rpm -ivh http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
+
 Install required Puppet modules:
 puppet module install alup/rbenv
+puppet module install thias/nginx
 
