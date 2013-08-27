@@ -7,10 +7,17 @@ augeas { "exclude postgresql":
   ],
 }
 
-package { 'postgresql92': ensure => installed, }
-->
-package { 'postgresql92-server': ensure => installed, }
-->
-exec { "/sbin/service postgresql-9.2 initdb": creates => "/var/lib/pgsql/9.2/data/PG_VERSION" }
-->
-service { "postgresql-9.2": ensure => "running", }
+class { 'postgresql':
+  charset => 'UTF8',
+  locale  => 'sv_se',
+  client_package_name => 'postgresql92',
+  server_package_name => 'postgresql92-server',
+  contrib_package_name => 'postgresql92-contrib',
+  devel_package_name => 'postgresql92-devel',
+  service_name  => 'postgresql-9.2',
+  bindir  => '/usr/pgsql-9.2/bin',
+  datadir  => '/var/lib/pgsql/9.2/data',
+}->
+class { 'postgresql::server':
+}
+
