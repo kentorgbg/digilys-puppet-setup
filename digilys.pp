@@ -2,3 +2,4 @@
 import 'setup/*.pp'
 import 'node/augeas.pp'
 import 'node/postgresql9.2.pp'
+import 'node/ruby_environment.pp'

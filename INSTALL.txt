@@ -14,6 +14,9 @@ Install PostgreSQL repository
 wget http://yum.postgresql.org/9.2/redhat/rhel-5-i386/pgdg-centos92-9.2-6.noarch.rpm
 rpm -i pgdg-centos92-9.2-6.noarch.rpm
 
+Install required Puppet modules:
+puppet module install alup/rbenv
+
 
 * CentOS 6:
 Install GIT:
@@ -25,3 +28,7 @@ yum install puppet
 
 Install PostgreSQL repository
 rpm -ivh http://yum.postgresql.org/9.2/redhat/rhel-6-i386/pgdg-centos92-9.2-6.noarch.rpm
+
+Install required Puppet modules:
+puppet module install alup/rbenv
+
