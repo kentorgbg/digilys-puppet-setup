@@ -1,0 +1,9 @@
+---
+:backends:
+  - yaml
+:hierarchy:
+  - digilys-common
+  - digilys-custom
+
+:yaml:
+  :datadir: /opt/digilys/etc/hiera

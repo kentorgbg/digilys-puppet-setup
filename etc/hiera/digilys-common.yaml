@@ -1,0 +1,14 @@
+# PostgreSQL configuration
+postgresql::params::charset: "UTF8"
+postgresql::params::locale: "sv_SE.utf8"
+postgresql::params::run_initdb: 'true'
+postgresql::params::custom_client_package_name: "postgresql92"
+postgresql::params::custom_server_package_name: "postgresql92-server"
+postgresql::params::custom_contrib_package_name: "postgresql92-contrib"
+postgresql::params::custom_devel_package_name: "postgresql92-devel"
+postgresql::params::custom_service_name: "postgresql-9.2"
+postgresql::params::custom_bindir: "/usr/pgsql-9.2/bin"
+postgresql::params::custom_confdir: "/var/lib/pgsql/9.2/data"
+postgresql::params::datadir: "/var/lib/pgsql/9.2/data"
+postgresql::initdb::datadir: "/var/lib/pgsql/9.2/data"
+
