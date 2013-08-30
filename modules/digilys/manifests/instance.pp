@@ -20,6 +20,8 @@ define digilys::instance(
     user     => $username,
     password => $password,
     grant    => 'all',
-  }
+  } ->
+
+  digilys::ruby_environment { "${username}": }
 
 }
