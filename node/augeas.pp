@@ -1,3 +1,0 @@
-package { "augeas":
-    ensure => "installed"
-}
