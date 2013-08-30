@@ -22,6 +22,22 @@ define digilys::instance(
     grant    => 'all',
   } ->
 
-  digilys::ruby_environment { "${username}": }
+  digilys::ruby_environment { "${username}": } ->
 
+  file { [
+    "/home/${username}/app",
+    "/home/${username}/app/shared",
+    "/home/${username}/app/shared/config"
+  ]:
+    ensure => directory,
+    owner  => $username,
+    group  => $username
+  } ->
+  file { "/home/${username}/app/shared/config/database.yml":
+    ensure  => present,
+    content => template("digilys/database.yml.erb"),
+    owner   => $username,
+    group   => $username,
+    mode    => 600
+  }
 }
