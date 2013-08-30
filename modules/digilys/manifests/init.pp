@@ -19,6 +19,11 @@ class digilys {
   include nginx
   nginx::file { "digilys.conf":
     content => template("digilys/nginx.conf.erb")
+  } ->
+  file { "/usr/share/nginx/html/robots.txt":
+    ensure  => present,
+    replace => "no",
+    content => "User-Agent: *\nDisallow: /\n"
   }
 
   # Postgres path
