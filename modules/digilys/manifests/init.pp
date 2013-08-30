@@ -20,4 +20,10 @@ class digilys {
   nginx::file { "digilys.conf":
     content => template("digilys/nginx.conf.erb")
   }
+
+  # Postgres path
+  file { "/etc/profile.d/postgres92.sh":
+    ensure  => present,
+    content => 'export PATH=$PATH:/usr/pgsql-9.2/bin'
+  }
 }
