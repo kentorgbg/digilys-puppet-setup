@@ -47,5 +47,14 @@ define digilys::instance(
     owner   => $username,
     group   => $username,
     mode    => 600
+  } ->
+
+  exec { "digilys::rails_relative_url_root ${username}":
+    command => "echo 'export RAILS_RELATIVE_URL_ROOT=\"${url}\"' >> /home/${username}/.bashrc",
+    user    => $user,
+    group   => $group,
+    unless  => "grep -q RAILS_RELATIVE_URL_ROOT /home/${username}/.bashrc",
+    path    => ['/bin', '/usr/bin', '/usr/sbin']
   }
+
 }
