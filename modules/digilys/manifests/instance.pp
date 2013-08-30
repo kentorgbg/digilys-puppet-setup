@@ -39,5 +39,13 @@ define digilys::instance(
     owner   => $username,
     group   => $username,
     mode    => 600
+  } ->
+  file { "/home/${username}/app/shared/config/app_config.private.yml":
+    ensure  => present,
+    replace => "no",
+    content => template("digilys/app_config.private.yml.erb"),
+    owner   => $username,
+    group   => $username,
+    mode    => 600
   }
 }
