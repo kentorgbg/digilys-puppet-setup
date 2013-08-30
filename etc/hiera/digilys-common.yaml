@@ -1,3 +1,15 @@
+# Digilys instances - setup these in digilys-custom.yaml
+# Example:
+# digilys_instances:
+#   'instance01':
+#       password: test
+#       url: /instance01
+#       port: 24500
+#   'instance02':
+#       password: test
+#       url: /instance02
+#       port: 24501
+
 # PostgreSQL configuration
 postgresql::params::charset: "UTF8"
 postgresql::params::locale: "sv_SE.utf8"
