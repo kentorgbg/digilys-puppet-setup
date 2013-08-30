@@ -40,6 +40,13 @@ define digilys::instance(
     group   => $username,
     mode    => 600
   } ->
+  file { "/home/${username}/app/shared/config/passenger_port.txt":
+    ensure  => present,
+    content => "${port}",
+    owner   => $username,
+    group   => $username,
+    mode    => 644
+  } ->
   file { "/home/${username}/app/shared/config/app_config.private.yml":
     ensure  => present,
     replace => "no",
