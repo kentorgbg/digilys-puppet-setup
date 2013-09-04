@@ -10,6 +10,12 @@
 #       url: /instance02
 #       port: 24501
 
+# Digilys SSL configuration - setup these in digilys-custom.yaml
+# digilys_ssl:
+#   server_name: digilys
+#   certificate: /etc/ssl/localcerts/digilys.crt
+#   certificate_key: /etc/ssl/localcerts/digilys.key
+
 # PostgreSQL configuration
 postgresql::params::charset: "UTF8"
 postgresql::params::locale: "sv_SE.utf8"

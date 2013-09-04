@@ -17,6 +17,9 @@ class digilys {
 
   # nginx, uses $digilys_instances in the template
   include nginx
+
+  $digilys_ssl = hiera("digilys_ssl", false)
+
   nginx::file { "digilys.conf":
     content => template("digilys/nginx.conf.erb")
   } ->
