@@ -20,8 +20,13 @@
 # digilys_readonly_users:
 #   'readonly_user1':
 #     password: temp
+#     external: 10.0.0.0/16
 #   'readonly_user2':
 #     password: temp
+#
+# Postgres needs to listen externally if external users are
+# to be allowed. This can be set using the following:
+# postgresql::config::listen_addresses: "*"
 #
 # Allowed readonly tables
 # digilys_readonly_tables: "table1, table2"
