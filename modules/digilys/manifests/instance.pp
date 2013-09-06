@@ -6,6 +6,8 @@ define digilys::instance(
 ) {
   notice("Digilys instance: ${username} ${password} ${url} ${port}")
 
+  $readonly_tables = hiera("digilys_readonly_tables", false)
+
   user { "${username}":
     ensure => present,
     managehome => true,
@@ -21,6 +23,19 @@ define digilys::instance(
     password => $password,
     grant    => 'all',
   } ->
+  postgresql::database_grant { "digilys_readonly privileges on ${username}":
+    privilege => "CONNECT",
+    db        => $username,
+    role      => "digilys_readonly"
+  }
+
+  if ($readonly_tables) {
+    postgresql_psql { "${username}: GRANT SELECT ON ${readonly_tables} TO digilys_readonly":
+      command => "GRANT SELECT ON ${readonly_tables} TO digilys_readonly",
+      db      => $username,
+      unless  => "SELECT 1 WHERE 1=0"
+    }
+  }
 
   digilys::ruby_environment { "${username}": } ->
 

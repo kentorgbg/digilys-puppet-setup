@@ -4,6 +4,10 @@ class digilys {
   include postgresql
   include postgresql::server
 
+  # Readonly role and users
+  postgresql::role { "digilys_readonly": }
+  create_resources(digilys::readonly_user, hiera("digilys_readonly_users", []))
+
   # Dependencies
   if ! defined(Package["libxml2-devel"])      { package { "libxml2-devel":      ensure => installed } }
   if ! defined(Package["libxslt-devel"])      { package { "libxslt-devel":      ensure => installed } }

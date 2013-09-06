@@ -16,6 +16,16 @@
 #   certificate: /etc/ssl/localcerts/digilys.crt
 #   certificate_key: /etc/ssl/localcerts/digilys.key
 
+# Readonly users with access to the database
+# digilys_readonly_users:
+#   'readonly_user1':
+#     password: temp
+#   'readonly_user2':
+#     password: temp
+#
+# Allowed readonly tables
+# digilys_readonly_tables: "table1, table2"
+
 # PostgreSQL configuration
 postgresql::params::charset: "UTF8"
 postgresql::params::locale: "sv_SE.utf8"
