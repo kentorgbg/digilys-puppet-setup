@@ -33,7 +33,7 @@ define digilys::instance(
     postgresql_psql { "${username}: GRANT SELECT ON ${readonly_tables} TO digilys_readonly":
       command => "GRANT SELECT ON ${readonly_tables} TO digilys_readonly",
       db      => $username,
-      unless  => "SELECT 1 WHERE 1=0"
+      unless  => "SELECT 1 FROM (SELECT count(*) AS c FROM pg_tables WHERE schemaname = 'public' AND tablename = 'schema_migrations') AS t WHERE t.c != 1"
     }
   }
 
