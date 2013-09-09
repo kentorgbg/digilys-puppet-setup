@@ -70,6 +70,13 @@ define digilys::instance(
     group   => $username,
     mode    => 600
   } ->
+  file { "/home/${username}/start-digilys-instance.sh":
+    ensure  => present,
+    content => template("digilys/start-instance.sh.erb"),
+    owner   => $username,
+    group   => $username,
+    mode    => 700
+  } ->
 
   exec { "digilys::rails_relative_url_root ${username}":
     command => "echo 'export RAILS_RELATIVE_URL_ROOT=\"${url}\"' >> /home/${username}/.bashrc",

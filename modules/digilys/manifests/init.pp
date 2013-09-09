@@ -38,4 +38,11 @@ class digilys {
     ensure  => present,
     content => 'export PATH=$PATH:/usr/pgsql-9.2/bin'
   }
+
+  # Instance startup script
+  exec { "digilys::instance startup script":
+    command => "echo '/bin/sh /opt/digilys/start-instances.sh' >> /etc/rc.local",
+    unless  => "grep -q /opt/digilys/start-instances.sh /etc/rc.local",
+    path    => ['/bin', '/usr/bin', '/usr/sbin']
+  }
 }

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+homedir=/home/<%= @username %>
+passenger_port=$(cat $homedir/app/shared/config/passenger_port.txt)
+
+source $homedir/.rbenvrc
+export RAILS_RELATIVE_URL_ROOT="<%= @url %>"
+
+cd -- $homedir/app/current
+
+bundle exec passenger start $homedir/app/current -p $passenger_port -e production -d --log-file $homedir/app/shared/log/passenger.log --pid-file $homedir/app/shared/pids/passenger.pid
+
+
