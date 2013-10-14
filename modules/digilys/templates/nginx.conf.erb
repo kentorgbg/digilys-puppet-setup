@@ -5,6 +5,11 @@ server {
   <%- end -%>
 
   root /usr/share/nginx/html;
+  error_page 503 @maintenance;
+
+  if (-f $document_root/maintenance.html) {
+    return 503;
+  }
 
   <%- if @digilys_ssl -%>
   server_name <%= @digilys_ssl["server_name"] %>;
@@ -23,4 +28,8 @@ server {
     proxy_set_header Host $host;
   }
   <%- end -%>
+
+  location @maintenance {
+    rewrite ^(.*)$ /maintenance.html break;
+  }
 }
