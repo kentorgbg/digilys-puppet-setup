@@ -4,7 +4,9 @@ homedir=/home/<%= @username %>
 passenger_port=$(cat $homedir/app/shared/config/passenger_port.txt)
 
 source $homedir/.rbenvrc
+<% if @url != "/" %>
 export RAILS_RELATIVE_URL_ROOT="<%= @url %>"
+<% end %>
 
 cd -- $homedir/app/current
 

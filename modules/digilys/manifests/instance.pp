@@ -82,7 +82,7 @@ define digilys::instance(
     command => "echo 'export RAILS_RELATIVE_URL_ROOT=\"${url}\"' >> /home/${username}/.bashrc",
     user    => $user,
     group   => $group,
-    unless  => "grep -q RAILS_RELATIVE_URL_ROOT /home/${username}/.bashrc",
+    unless  => "test '${url}' = '/' || grep -q RAILS_RELATIVE_URL_ROOT /home/${username}/.bashrc",
     path    => ['/bin', '/usr/bin', '/usr/sbin']
   }
 
