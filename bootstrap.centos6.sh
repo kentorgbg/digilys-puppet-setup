@@ -9,6 +9,6 @@ rpm -ivh http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0
 yum install -y puppet
 
 # Install required puppet modules
-puppet module install puppetlabs/postgresql
+puppet module install puppetlabs/postgresql --version 2.5.0
 puppet module install alup/rbenv
 puppet module install thias/nginx
