@@ -33,6 +33,11 @@ class digilys {
     content => "User-Agent: *\nDisallow: /\n"
   }
 
+  # memcached
+  class { "memcached":
+    max_memory => 512
+  }
+
   # Postgres path
   file { "/etc/profile.d/postgres92.sh":
     ensure  => present,

@@ -12,3 +12,4 @@ yum install -y puppet
 puppet module install puppetlabs/postgresql --version 2.5.0
 puppet module install alup/rbenv
 puppet module install thias/nginx
+puppet module install saz/memcached --version 2.2.4
