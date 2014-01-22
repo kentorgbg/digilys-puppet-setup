@@ -6,7 +6,7 @@ rpm -ivh http://yum.postgresql.org/9.2/redhat/rhel-6-i386/pgdg-centos92-9.2-6.no
 rpm -ivh http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
 
 # Install required packages
-yum install -y puppet
+yum install -y puppet-3.2.4
 
 # Install required puppet modules
 puppet module install puppetlabs/postgresql --version 2.5.0
