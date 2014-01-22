@@ -33,6 +33,13 @@ class digilys {
     content => "User-Agent: *\nDisallow: /\n"
   }
 
+  # logrotate
+  file { "/etc/logrotate.d/digilys":
+    endure  => present,
+    replace => no,
+    content => template("digilys/logrotate.conf.erb")
+  }
+
   # memcached
   class { "memcached":
     max_memory => 512
