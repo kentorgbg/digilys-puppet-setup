@@ -35,7 +35,7 @@ class digilys {
 
   # logrotate
   file { "/etc/logrotate.d/digilys":
-    endure  => present,
+    ensure  => present,
     replace => no,
     content => template("digilys/logrotate.conf.erb")
   }
