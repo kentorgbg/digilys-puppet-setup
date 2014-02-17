@@ -1,6 +1,6 @@
 define digilys::ruby_environment (
   $user         = $title,
-  $ruby_version = "1.9.3-p392",
+  $ruby_version = "2.1.0",
   $rc           = ".bashrc"
 ) {
 
